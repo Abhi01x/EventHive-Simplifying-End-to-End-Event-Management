@@ -6,7 +6,7 @@ EventHive is a full-stack event management platform where users can browse event
 
 ## 🎥 Project Demo
 
-[![Watch Video](https://drive.google.com/file/d/1u2xo-Z9Zipn8XkasWtNjhyW__0DcGxSM/view?usp=drivesdk)
+https://drive.google.com/file/d/1u2xo-Z9Zipn8XkasWtNjhyW__0DcGxSM/view?usp=drivesdk
 
 > 📽️ Replace the above URL with your YouTube/Vimeo/Drive link to a recorded demo.
 
