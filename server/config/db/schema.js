@@ -5,7 +5,7 @@ const initSchema = async () => {
     const connection = await pool.getConnection();
 
     // Example: Create a users table
-<<<<<<< HEAD
+
          await connection.query(`
           CREATE TABLE IF NOT EXISTS users (
               id INT AUTO_INCREMENT PRIMARY KEY,
@@ -93,7 +93,7 @@ const initSchema = async () => {
               );
           `);
 
-=======
+
     await connection.query(`
         CREATE TABLE IF NOT EXISTS users (
             user_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -133,7 +133,7 @@ const initSchema = async () => {
         )
     `);
     
->>>>>>> 9e7efe4ede171174814304f98f9f5d5696e6f513
+
     console.log(' Database schema initialized');
     connection.release();
   } catch (err) {

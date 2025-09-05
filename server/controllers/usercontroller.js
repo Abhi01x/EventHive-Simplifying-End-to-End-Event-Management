@@ -197,10 +197,11 @@ export const getticketbyeventid = async (req, res) => {
 
 
 export const booktickets = async (req, res) => {
-const { ticket_id, quantity } = req.body;
-
-  const attendees = req.body.attendees; // Expecting an array of attendee objects
-
+const { ticket_id } = req.body;
+  
+const attendees = req.body.attendees; // Expecting an array of attendee objects
+const quantity = attendees ? attendees.length : 0;
+   console.log('Attendees:', attendees , ticket_id, quantity);
   if (!ticket_id || !quantity || !attendees) {
     return res.status(400).json({ msg: 'ticket_id, quantity, and attendees are required' });
   }
@@ -262,8 +263,8 @@ const { ticket_id, quantity } = req.body;
 
   
       for (const attendee of attendees) {
-        const { name, email, phone, gender } = attendee;
-        if (!name || !email || !phone || !gender) {
+        const { name, email, mobile, gender } = attendee;
+        if (!name || !email || !mobile || !gender) {
           await connection.rollback();
           return res.status(400).json({ msg: 'All attendee details are required' });
         }
@@ -271,7 +272,7 @@ const { ticket_id, quantity } = req.body;
         await connection.query(`
           INSERT INTO attendees (booking_id, name, email, phone, gender)
           VALUES (?, ?, ?, ?, ?);
-        `, [bookingId, name, email, phone, gender]);
+        `, [bookingId, name, email, mobile, gender]);
       }
 
       await connection.commit();
@@ -326,3 +327,4 @@ export const getMyBookings = async (req, res) => {
   }
 };
 
+ 
